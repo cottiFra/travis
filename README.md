@@ -1,77 +1,77 @@
 # Travis
 Local AI assistant with voice control, wake word detection and PC automation
 
-## Descrizione
+## Description
 
-**Travis** è un assistente vocale AI locale che ascolta il tuo pc e risponde ai tuoi comandi. Non richiede internet (offline-first) ed è completamente open source.
+**Travis** is a local AI voice assistant that listens to your PC and responds to your commands. It doesn't require internet (offline-first) and is completely open source.
 
-### Funzionalità principali:
-- **Riconoscimento vocale** - Converte la tua voce in testo con Whisper
-- **Wake word detection** - Si attiva quando dici "Travis"
-- **AI locale** - Esegue Ollama localmente senza inviare dati online
-- **Controllo Spotify** - Riproduci canzoni, pausa, salta tracce
-- **Sintesi vocale** - Risponde con voce naturale
-- **Automazione PC** - Può eseguire script Python per controllare il tuo computer
-- **Interfaccia GUI** - UI moderna con CustomTkinter
+### Key Features:
+- **Speech Recognition** - Converts your voice to text with Whisper
+- **Wake Word Detection** - Activates when you say "Travis"
+- **Local AI** - Runs Ollama locally without sending data online
+- **Spotify Control** - Play songs, pause, skip tracks
+- **Voice Synthesis** - Responds with natural voice
+- **PC Automation** - Can execute Python scripts to control your computer
+- **GUI Interface** - Modern UI with CustomTkinter
 
 ---
 
-## Come funziona
+## How It Works
 
-### Flusso di esecuzione:
+### Execution Flow:
 
-1. **Avvio**: Travis carica i modelli (Whisper, Vosk, TTS)
-2. **Ascolto**: Rimane in ascolto della parola magica **"Travis"**
-3. **Registrazione**: Una volta rilevata, inizia a registrare il tuo comando
-4. **Trascrizione**: Converte l'audio in testo con Whisper
-5. **Azione**: 
-   - Se è un comando Spotify → controlla Spotify
-   - Altrimenti → passa il comando a Ollama (AI locale)
-6. **Risposta**: Esegue l'azione e ti risponde con voce sintetizzata
+1. **Startup**: Travis loads the models (Whisper, Vosk, TTS)
+2. **Listening**: Waits for the magic word **"Travis"**
+3. **Recording**: Once detected, starts recording your command
+4. **Transcription**: Converts audio to text with Whisper
+5. **Action**: 
+   - If it's a Spotify command → controls Spotify
+   - Otherwise → passes the command to Ollama (local AI)
+6. **Response**: Executes the action and responds with synthesized voice
 
-### Architettura moduli:
+### Module Architecture:
 
-| File | Funzione |
+| File | Function |
 |------|----------|
-| `travis.py` | Punto di ingresso principale (CLI) |
-| `travis_core.py` | Core del sistema (gestisce audio, AI, Spotify) |
-| `ui.py` | Interfaccia grafica (GUI) |
-| `spotify_control.py` | Modulo dedicato al controllo Spotify |
+| `travis.py` | Main entry point (CLI) |
+| `travis_core.py` | System core (manages audio, AI, Spotify) |
+| `ui.py` | Graphical interface (GUI) |
+| `spotify_control.py` | Spotify control module |
 
 ---
 
-## Installazione
+## Installation
 
-### Prerequisiti:
+### Prerequisites:
 - Python 3.8+
-- Microfono funzionante
-- CUDA/GPU (opzionale, ma consigliato per Whisper)
+- Working microphone
+- CUDA/GPU (optional, but recommended for Whisper)
 
 ### Setup:
 
 ```bash
-# 1. Clona il repository
-git clone https://github.com/tuousername/travis.git
+# 1. Clone the repository
+git clone https://github.com/yourusername/travis.git
 cd travis
 
-# 2. Crea un virtual environment
+# 2. Create a virtual environment
 python -m venv venv
 venv\Scripts\activate  # Windows
 # source venv/bin/activate  # Linux/Mac
 
-# 3. Installa le dipendenze
+# 3. Install dependencies
 pip install -r requirements.txt
 
-# 4. Scarica Ollama
-# https://ollama.ai - e installa un modello (es: ollama run mistral)
+# 4. Download Ollama
+# https://ollama.ai - and install a model (e.g.: ollama run mistral)
 
-# 5. Configura le credenziali Spotify (opzionale)
-# Modifica config.json con i tuoi dati Spotify
+# 5. Configure Spotify credentials (optional)
+# Modify config.json with your Spotify data
 ```
 
 ---
 
-## Configurazione
+## Configuration
 
 ### File `config.json`:
 ```json
@@ -96,23 +96,23 @@ pip install -r requirements.txt
 
 ---
 
-## Utilizzo
+## Usage
 
 ### CLI (Command Line):
 ```bash
 python travis.py
 ```
-- Aspetta la parola "Travis"
-- Dì il tuo comando
-- Aspetta la risposta
+- Wait for the "Travis" word
+- Say your command
+- Wait for the response
 
-### Comandi di esempio:
-- "Travis, riproduci Bohemian Rhapsody"
-- "Travis, metti una canzone random"
-- "Travis, pausa"
-- "Travis, che ora è?"
-- "Travis, dimmi una barzelletta"
-- "Travis, spegniti" (per chiudere)
+### Example Commands:
+- "Travis, play Bohemian Rhapsody"
+- "Travis, play a random song"
+- "Travis, pause"
+- "Travis, what time is it?"
+- "Travis, tell me a joke"
+- "Travis, quit" (to exit)
 
 ### GUI:
 ```bash
@@ -121,40 +121,40 @@ python ui.py
 
 ---
 
-## Sicurezza
+## Security
 
-IMPORTANTE: Prima di pushare su GitHub:
-- Non commitare `config.json` con credenziali reali
-- Aggiungi `config.json` al `.gitignore`
-- Il `.gitignore` esclude automaticamente `venv/` e file sensibili
-
----
-
-## Dipendenze
-
-Vedi [requirements.txt](requirements.txt) per la lista completa:
-- **Whisper** - Riconoscimento vocale (OpenAI)
-- **Vosk** - Wake word detection offline
-- **Ollama** - AI locale
-- **Spotipy** - API Spotify
-- **pyttsx3** - Sintesi vocale offline
-- **CustomTkinter** - UI moderna
-- **NumPy, SciPy, SoundDevice** - Elaborazione audio
+IMPORTANT: Before pushing to GitHub:
+- Don't commit `config.json` with real credentials
+- Add `config.json` to `.gitignore`
+- The `.gitignore` automatically excludes `venv/` and sensitive files
 
 ---
 
-## Contribuire
+## Dependencies
 
-Sei libero di fare fork, aprire issues o inviare pull requests!
+See [requirements.txt](requirements.txt) for the complete list:
+- **Whisper** - Speech recognition (OpenAI)
+- **Vosk** - Offline wake word detection
+- **Ollama** - Local AI
+- **Spotipy** - Spotify API
+- **pyttsx3** - Offline voice synthesis
+- **CustomTkinter** - Modern UI
+- **NumPy, SciPy, SoundDevice** - Audio processing
 
 ---
 
-## Licenza
+## Contributing
 
-Vedi [LICENSE](LICENSE)
+Feel free to fork, open issues, or submit pull requests!
 
 ---
 
-## Supporto
+## License
 
-Se ti piace questo progetto, lascia una stella!
+See [LICENSE](LICENSE)
+
+---
+
+## Support
+
+If you like this project, leave a star!
