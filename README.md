@@ -37,7 +37,6 @@ Local AI assistant with voice control, wake word detection and PC automation
 | `travis_core.py` | Core del sistema (gestisce audio, AI, Spotify) |
 | `ui.py` | Interfaccia grafica (GUI) |
 | `spotify_control.py` | Modulo dedicato al controllo Spotify |
-| `primoscript.py` | Script per azioni iniziali |
 
 ---
 
