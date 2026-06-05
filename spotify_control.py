@@ -18,10 +18,10 @@ def carica_credenziali():
     return "6c35df482c2c4040bf8a0e4bcc52840f", "27a4ac34c87b4a4fb1e790828b9835e1", "http://127.0.0.1:8888/callback"
 
 CLIENT_ID, CLIENT_SECRET, REDIRECT_URI = carica_credenziali()
-#mettere qui client id e client secret dati da spotify
+
 sp = spotipy.Spotify(auth_manager=SpotifyOAuth(
-    CLIENT_ID = "your_client_id_here"
-    CLIENT_SECRET = "your_client_secret_here"
+    client_id=CLIENT_ID,
+    client_secret=CLIENT_SECRET,
     redirect_uri=REDIRECT_URI,
     scope="user-modify-playback-state user-read-playback-state"
 ))
