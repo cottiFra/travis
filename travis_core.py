@@ -32,8 +32,8 @@ class TravisCore:
         
         return {
             "spotify": {
-                "client_id": "6c35df482c2c4040bf8a0e4bcc52840f",
-                "client_secret": "27a4ac34c87b4a4fb1e790828b9835e1",
+                "client_id": "put here client id",
+                "client_secret": "put here client secret",
                 "redirect_uri": "http://127.0.0.1:8888/callback"
             },
             "whisper": {
